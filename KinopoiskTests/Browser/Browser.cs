@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.ObjectModel;
 
@@ -7,10 +8,12 @@ namespace KinopoiskTests.Browser
     public class Browser
     {
         private static IWebDriver _driver;
-        private  static Browser _instance;
+        private static Browser _instance;
         public static BrowserFactory.BrowserType _currentBrowser;
+
         static Boolean _readyStateComplete = false;
 
+        static WebDriverWait _wait;
 
         private Browser()
         {
@@ -61,8 +64,7 @@ namespace KinopoiskTests.Browser
             }
            _driver.SwitchTo().Window(windowHandle);
         }
-
-       
+         
         public static void Quit()
         {
             _driver.Quit();

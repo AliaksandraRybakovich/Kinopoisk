@@ -1,18 +1,20 @@
 ﻿using KinopoiskTests.Entities;
 using KinopoiskTests.Pages;
 using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace KinopoiskTests.Steps
 {
     public class HomeSteps
     {
         static HomePage homePage = new HomePage();
+        static WebDriverWait wait = new WebDriverWait(Browser.Browser.GetDriver(), TimeSpan.FromSeconds(15));
 
         public static bool CheckLogo()
-        {            
-            Browser.Browser.CheckStateLoading();
+        {
+            Browser.Browser.SwitchToWindow();
             bool isAssertLogo = false;
-            if (homePage.Logo.Displayed)
+            if (Browser.Browser.CheckStateLoading())
             {
                 isAssertLogo = true;
             }
@@ -27,9 +29,9 @@ namespace KinopoiskTests.Steps
 
         public static LogPage ClickOnLogOut(FieldForDropDown textDropdown)
         {
+            wait.Until(ExpectedConditions.ElementToBeClickable(homePage.Logo));
             homePage.Logo.Click();
-            SelectElement dropdown = new SelectElement(homePage.Logo);
-            dropdown.SelectByText(textDropdown.Logout);
+            homePage.LogOut.Click();
             return new LogPage();
         }
     }

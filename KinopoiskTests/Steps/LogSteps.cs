@@ -1,4 +1,6 @@
 ﻿using KinopoiskTests.Pages;
+using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace KinopoiskTests.Steps
 {
@@ -14,10 +16,8 @@ namespace KinopoiskTests.Steps
 
         public static bool GeckLogOutPage()
         {
-            Browser.Browser.SwitchToWindow();
-            Browser.Browser.CheckStateLoading();
             bool isAssertLogout = false;
-            if (logPage.login.Displayed)
+            if (Browser.Browser.CheckStateLoading())
             {
                 isAssertLogout = true;
             }
