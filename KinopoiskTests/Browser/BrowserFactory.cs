@@ -5,7 +5,7 @@ using OpenQA.Selenium.IE;
 
 namespace KinopoiskTests.Browser
 {
-   public class BrowserFactory
+    public class BrowserFactory
     {
         public enum BrowserType
         {

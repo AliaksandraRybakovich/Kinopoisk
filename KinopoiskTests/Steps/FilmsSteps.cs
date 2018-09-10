@@ -1,10 +1,9 @@
-﻿using KinopoiskTests.Entities;
-using KinopoiskTests.Pages;
+﻿using KinopoiskTests.Pages;
 
 
 namespace KinopoiskTests.Steps
 {
-   public class FilmsSteps
+    public class FilmsSteps
     {
         static FilmsPage filmsPage = new FilmsPage();
         public static FilmCurrentPage GoTOLinkFilm()

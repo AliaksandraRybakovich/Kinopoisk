@@ -9,10 +9,17 @@ namespace KinopoiskTests.Pages
         public HomePage()
         {
             PageFactory.InitElements(Browser.Browser.GetDriver(), this);
-        }        
+        }
+
+        [FindsBy(How = How.XPath, Using = "//a[contains(@class,'advanced-search-button')]")]
+        public IWebElement Logo { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//a[contains(@class,'advanced-search-button')]")]       
         public  IWebElement ButtonExtendedSearch { get; set; }
-        
+
+        [FindsBy(How = How.XPath, Using = "//a[contains(@class,'advanced-search-button')]")]
+        public IWebElement LogOut { get; set; }
+
+
     }
 }

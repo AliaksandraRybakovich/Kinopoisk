@@ -5,9 +5,9 @@ namespace KinopoiskTests.Pages
 {
     public class ExtentedSearchPage
     {
-        public  BaseElemet checkSuccess = new BaseElemet(By.XPath("//*[@class = 'moviename-big']/span[1]"));
-        public BaseElemet textboxName = new BaseElemet(By.XPath("//input[@class = 'text el_1']"));
-        public BaseElemet textboxYear = new BaseElemet(By.XPath("//*[@id='year']"));
-        public BaseElemet buttonSearch = new BaseElemet(By.XPath("//*[@id='formSearchMain']/input[11]"));
+        public  BaseElement checkSuccess = new BaseElement(By.XPath("//*[@class = 'moviename-big']/span[1]"));
+        public BaseElement textboxName = new BaseElement(By.XPath("//input[@class = 'text el_1']"));
+        public BaseElement textboxYear = new BaseElement(By.XPath("//*[@id='year']"));
+        public BaseElement buttonSearch = new BaseElement(By.XPath("//*[@id='formSearchMain']/input[11]"));
     }
 }

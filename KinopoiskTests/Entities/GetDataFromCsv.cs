@@ -18,6 +18,30 @@ namespace KinopoiskTests.Entities
                     yield return new ExtentedSearchInfo(csv[0], csv[1]);
                 }
             }
-        }        
+        }
+
+        public static IEnumerable<UserInfo> ReadCsvForLogInUser()
+        {
+            string path = $"{AppDomain.CurrentDomain.BaseDirectory}..\\..\\Resources\\TestDataForUser.csv";
+            using (CsvReader csv = new CsvReader(new StreamReader(path, Encoding.Default), true))
+            {
+                while (csv.ReadNextRecord())
+                {
+                    yield return new UserInfo(csv[0], csv[1]);
+                }
+            }
+        }
+
+        public static IEnumerable<FieldForDropDown> ReadCsvForDropdown()
+        {
+            string path = $"{AppDomain.CurrentDomain.BaseDirectory}..\\..\\Resources\\TestDataForDropdown.csv";
+            using (CsvReader csv = new CsvReader(new StreamReader(path, Encoding.Default), true))
+            {
+                while (csv.ReadNextRecord())
+                {
+                    yield return new FieldForDropDown(csv[0]);
+                }
+            }
+        }
     }
 }

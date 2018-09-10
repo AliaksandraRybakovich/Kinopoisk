@@ -4,6 +4,6 @@ namespace KinopoiskTests.Pages
 {
     public class FilmsPage
     {
-        public BaseElemet linkFilm = new BaseElemet(OpenQA.Selenium.By.LinkText("Унесённые призраками"));
+        public BaseElement linkFilm = new BaseElement(OpenQA.Selenium.By.LinkText("Унесённые призраками"));
     }
 }

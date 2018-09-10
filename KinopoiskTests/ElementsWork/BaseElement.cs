@@ -1,12 +1,12 @@
-﻿using System;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using System;
 using System.Collections.ObjectModel;
 using System.Drawing;
 
 namespace KinopoiskTests.ElementsWork
 {
-    public class BaseElemet: IWebElement
+    public class BaseElement: IWebElement
     {
         private IWebDriver _driver;
         private IWebElement _element;
@@ -76,7 +76,7 @@ namespace KinopoiskTests.ElementsWork
         }
                
 
-        public BaseElemet(By locator)
+        public BaseElement(By locator)
         {
             this._locator = locator;
             _driver = Browser.Browser.GetDriver();
@@ -95,9 +95,7 @@ namespace KinopoiskTests.ElementsWork
         {
             WaitElementIsClikable();
             _element.Click();
-        }
-
-        
+        }        
 
         public ReadOnlyCollection<IWebElement> FindElements(By by)
         {
@@ -166,21 +164,7 @@ namespace KinopoiskTests.ElementsWork
             jsExecutor.ExecuteScript("arguments.click");
         }
 
-        public void SwitchTo()
-        {
-            string popupHandle = string.Empty;
-            ReadOnlyCollection<string> windowHandles = Browser.Browser.GetDriver().WindowHandles;
-            foreach (string handle in windowHandles)
-            {
-                if (handle != Browser.Browser.GetDriver().CurrentWindowHandle)
-                {
-                    popupHandle = handle;
-                    break;
-                }
-            }
-            WaitWindow();
-            Browser.Browser.GetDriver().SwitchTo().Window(popupHandle);
-        }
+       
 
         #region NotUsed
         public IWebElement FindElement(By by)

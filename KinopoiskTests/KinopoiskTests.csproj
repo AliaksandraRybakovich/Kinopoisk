@@ -90,31 +90,26 @@
     <Compile Include="Browser\Browser.cs" />
     <Compile Include="Browser\BrowserFactory.cs" />
     <Compile Include="Browser\Configuration.cs" />
-    <Compile Include="ElementsWork\BaseElemet.cs" />
+    <Compile Include="ElementsWork\BaseElement.cs" />
+    <Compile Include="Entities\FieldForDropDown.cs" />
     <Compile Include="Entities\GetDataFromCsv.cs" />
     <Compile Include="Entities\ExtentedSearchInfo.cs" />
+    <Compile Include="Entities\UserInfo.cs" />
+    <Compile Include="Pages\AuthorizationPage.cs" />
     <Compile Include="Pages\ExtentedSearchPage.cs" />
     <Compile Include="Pages\FilmCurrentPage.cs" />
     <Compile Include="Pages\FilmsPage.cs" />
+    <Compile Include="Pages\GoogleLogInPage.cs" />
     <Compile Include="Pages\HomePage.cs" />
+    <Compile Include="Pages\LogPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Specflow\BaseTest.cs" />
-    <Compile Include="Specflow\CheckExstentedSearch.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CheckExstentedSearch.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Specflow\CheckExtentedSearchSteps.cs" />
-    <Compile Include="Specflow\CheckExtentesPage.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CheckExtentesPage.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Specflow\CheckExtentesPageSteps.cs" />
+    <Compile Include="Steps\AuthorizationSteps.cs" />
     <Compile Include="Steps\FilmCurrentSteps.cs" />
     <Compile Include="Steps\FilmsSteps.cs" />
+    <Compile Include="Steps\GoogleLogInSteps.cs" />
     <Compile Include="Steps\HomeSteps.cs" />
     <Compile Include="Steps\ExtentedSearchSteps.cs" />
+    <Compile Include="Steps\LogSteps.cs" />
     <Compile Include="Tests\BaseTest.cs" />
     <Compile Include="Tests\Test.cs" />
   </ItemGroup>
@@ -124,17 +119,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Resources\TestDataForDropdown.csv" />
     <None Include="Resources\TestDataForExtendedSearch.csv" />
-    <None Include="Resources\TestDataForSearch.csv" />
     <None Include="Resources\TestDataForUser.csv" />
-    <None Include="Specflow\CheckExstentedSearch.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>CheckExstentedSearch.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Specflow\CheckExtentesPage.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>CheckExtentesPage.feature.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\chromedriver.exe" />
