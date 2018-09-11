@@ -34,5 +34,20 @@ namespace KinopoiskTests.Steps
 
             return new HomePage();
         }
+
+        public static HomePage SingIn(string login, string password)
+        {
+            Browser.Browser.SwitchToWindow();
+            googleLogInPage.loginInputFields.Click();
+            googleLogInPage.loginInputFields.SendKeys(login);
+            googleLogInPage.buttonLogin.Click();
+
+            wait.Until(ExpectedConditions.ElementToBeClickable(googleLogInPage.passwordInputFields));
+            googleLogInPage.passwordInputFields.Click();
+            googleLogInPage.passwordInputFields.SendKeys(password);
+            googleLogInPage.buttonPassword.Click();
+
+            return new HomePage();
+        }
     }
 }

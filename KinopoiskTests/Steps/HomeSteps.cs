@@ -27,7 +27,16 @@ namespace KinopoiskTests.Steps
             return new ExtentedSearchPage();
         }
 
-        public static LogPage ClickOnLogOut(FieldForDropDown textDropdown)
+        public static LogPage ClickOnLogOutForSpecflow()
+        {
+            Browser.Browser.SwitchToWindow();
+            wait.Until(ExpectedConditions.ElementToBeClickable(homePage.Logo));
+            homePage.Logo.Click();
+            homePage.LogOut.Click();
+            return new LogPage();
+        }
+
+        public static LogPage ClickOnLogOut()
         {
             wait.Until(ExpectedConditions.ElementToBeClickable(homePage.Logo));
             homePage.Logo.Click();
@@ -36,3 +45,4 @@ namespace KinopoiskTests.Steps
         }
     }
 }
+

@@ -19,7 +19,7 @@ namespace KinopoiskTests.Tests
         }
 
         [Test, Order(2)]
-        public void CheckSocialExtenteSocialPanel()
+        public void CheckExtenteSocialPanel()
         {
             AuthorizationSteps.ClickOnButtonExtenteSocialPanel();
 
@@ -28,8 +28,8 @@ namespace KinopoiskTests.Tests
             Assert.IsTrue(checkSocialLogin, "You didn't open extente social panel");
         }
 
-        [Test, Order(3), TestCaseSource(typeof(GetDataFromCsv), "ReadCsvForLogInUser")]
-        public void CheckGoToGoogleLogIn(UserInfo user)
+        [Test, Order(3)]
+        public void CheckGoToGoogleLogIn()
         {
             AuthorizationSteps.ClickOnButtonGoogle();
 
@@ -48,16 +48,17 @@ namespace KinopoiskTests.Tests
             Assert.IsTrue(checkLogInToKinopoisk, "You didn't sing in to Kinopoisk");
         }
 
-        [Test, Order(5), TestCaseSource(typeof(GetDataFromCsv), "ReadCsvForDropdown")]
-        public void CheckLogOut(FieldForDropDown dropdownText)
+        [Test, Order(5)]
+        public void CheckLogOut()
         {
-            HomeSteps.ClickOnLogOut(dropdownText);
+            HomeSteps.ClickOnLogOut();
 
-            bool checkLogout = LogSteps.GeckLogOutPage();
+            bool checkLogout = LogSteps.CheckLogOutPage();
 
             Assert.IsTrue(checkLogout, "You didn't log out from your account");
         }
     }
+
     [TestFixture]
     [Category("Extented Search")]
     public class Test2 : BaseTest

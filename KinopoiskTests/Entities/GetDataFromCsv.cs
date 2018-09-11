@@ -31,17 +31,6 @@ namespace KinopoiskTests.Entities
                 }
             }
         }
-
-        public static IEnumerable<FieldForDropDown> ReadCsvForDropdown()
-        {
-            string path = $"{AppDomain.CurrentDomain.BaseDirectory}..\\..\\Resources\\TestDataForDropdown.csv";
-            using (CsvReader csv = new CsvReader(new StreamReader(path, Encoding.Default), true))
-            {
-                while (csv.ReadNextRecord())
-                {
-                    yield return new FieldForDropDown(csv[0]);
-                }
-            }
-        }
+        
     }
 }

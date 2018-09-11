@@ -36,7 +36,7 @@ namespace KinopoiskTests.Steps
             extentedSearchPage.textboxYear.Click();
             extentedSearchPage.textboxYear.SendKeys(year);
 
-            extentedSearchPage.buttonSearch.JavaScriptExecutor();
+            extentedSearchPage.buttonSearch.Click();
             return new FilmsPage();
         }
     }

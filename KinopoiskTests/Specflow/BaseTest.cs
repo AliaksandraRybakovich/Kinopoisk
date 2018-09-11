@@ -1,23 +1,23 @@
 ﻿using KinopoiskTests.Browser;
-using NUnit.Framework;
+using TechTalk.SpecFlow;
 using System.Diagnostics;
 
-namespace KinopoiskTests.Tests
+namespace KinopoiskTests.Specflow
 {
-    [TestFixture]
+    [Binding]
     public class BaseTest
     {
         protected static Browser.Browser browser;
 
-        [OneTimeSetUp]
-        public void SetUpBrowser()
+        [BeforeScenario]
+        public static void BeforeScenarioBrowser()
         {
             browser = Browser.Browser.GetInstance();
             Browser.Browser.NavigateTo(Configuration.Url);
         }
 
-        [OneTimeTearDown]
-        public void TearDownBrowser()
+        [AfterScenario]
+        public static void AfterScenarioBrowser()
         {
             Browser.Browser.Quit();
             var processes = Process.GetProcessesByName("chromedriver");
@@ -25,6 +25,6 @@ namespace KinopoiskTests.Tests
             {
                 process.Kill();
             }
-        }
+        }        
     }
 }

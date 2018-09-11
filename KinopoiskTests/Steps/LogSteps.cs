@@ -14,7 +14,7 @@ namespace KinopoiskTests.Steps
             return new AuthorizationPage();
         }
 
-        public static bool GeckLogOutPage()
+        public static bool CheckLogOutPage()
         {
             bool isAssertLogout = false;
             if (Browser.Browser.CheckStateLoading())
