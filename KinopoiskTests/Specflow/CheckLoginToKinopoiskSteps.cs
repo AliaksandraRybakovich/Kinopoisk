@@ -17,7 +17,7 @@ namespace KinopoiskTests.Specflow
         public void WhenIEnterAlexandra_TestatestGmail_ComAndAlexRybka_TestInGoogleAccount(string login, string password)
         {
             Entities.UserInfo user = new Entities.UserInfo(login, password);
-            GoogleLogInSteps.SingIn(user.Login,user.Password);
+            YandexLogInSteps.SingIn(user.Login,user.Password);
         }
         
         [Then(@"i use Kinopoisk as a user")]

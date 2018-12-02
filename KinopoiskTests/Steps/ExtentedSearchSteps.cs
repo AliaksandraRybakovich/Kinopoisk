@@ -6,38 +6,27 @@ namespace KinopoiskTests.Steps
     public class ExtentedSearchSteps
     {
         static ExtentedSearchPage extentedSearchPage = new ExtentedSearchPage();
-        public static bool CheckExtentedSearch()
+        
+        public static void EnterDataForExtSearch(ExtentedSearchInfo searchInfo)
         {
-            bool isAssertExtentedSearch = false;
-            if (extentedSearchPage.checkSuccess.Displayed)
-            {
-                isAssertExtentedSearch = true;
-            }
-            return isAssertExtentedSearch;
+            extentedSearchPage.TextboxName.Click();
+            extentedSearchPage.TextboxName.SendKeys(searchInfo.NameOfFilms);
+
+            extentedSearchPage.TextboxYear.Click();
+            extentedSearchPage.TextboxYear.SendKeys(searchInfo.Year);
+
+            extentedSearchPage.ButtonSearch.Click();
         }
 
-        public static FilmsPage EnterDataForExtSearch(ExtentedSearchInfo searchInfo)
+        public static void EnterDataForExtSearch(string nemaOfFilm, string year)
         {
-            extentedSearchPage.textboxName.Click();
-            extentedSearchPage.textboxName.SendKeys(searchInfo.NameOfFilms);
+            extentedSearchPage.TextboxName.Click();
+            extentedSearchPage.TextboxName.SendKeys(nemaOfFilm);
 
-            extentedSearchPage.textboxYear.Click();
-            extentedSearchPage.textboxYear.SendKeys(searchInfo.Year);
+            extentedSearchPage.TextboxYear.Click();
+            extentedSearchPage.TextboxYear.SendKeys(year);
 
-            extentedSearchPage.buttonSearch.Click();
-            return new FilmsPage();
-        }
-
-        public static FilmsPage EnterDataForExtSearch(string nemaOfFilm, string year)
-        {
-            extentedSearchPage.textboxName.Click();
-            extentedSearchPage.textboxName.SendKeys(nemaOfFilm);
-
-            extentedSearchPage.textboxYear.Click();
-            extentedSearchPage.textboxYear.SendKeys(year);
-
-            extentedSearchPage.buttonSearch.Click();
-            return new FilmsPage();
+            extentedSearchPage.ButtonSearch.Click();
         }
     }
 }

@@ -5,7 +5,7 @@ using TechTalk.SpecFlow;
 
 namespace KinopoiskTests.Specflow
 {
-    [Binding
+    [Binding]
     public class CheckLogOutSteps
     {
         [Given(@"I use Kinopoisk as a user")]

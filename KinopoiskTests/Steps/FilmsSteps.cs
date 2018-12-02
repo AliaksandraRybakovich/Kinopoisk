@@ -8,13 +8,6 @@ namespace KinopoiskTests.Steps
     {
         static FilmsPage filmsPage = new FilmsPage();
 
-        public static FilmCurrentPage GoTOLinkFilm()
-        {
-            if (filmsPage.linkFilm.Displayed)
-            {
-                filmsPage.linkFilm.Click();
-            }
-            return new FilmCurrentPage();
-        }
+      
     }
 }

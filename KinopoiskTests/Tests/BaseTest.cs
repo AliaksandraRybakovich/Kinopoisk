@@ -20,11 +20,6 @@ namespace KinopoiskTests.Tests
         public void TearDownBrowser()
         {
             Browser.Browser.Quit();
-            var processes = Process.GetProcessesByName("chromedriver");
-            foreach (var process in processes)
-            {
-                process.Kill();
-            }
         }
     }
 }

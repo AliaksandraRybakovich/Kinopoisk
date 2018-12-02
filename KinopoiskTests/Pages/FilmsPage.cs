@@ -1,9 +1,18 @@
-﻿using KinopoiskTests.ElementsWork;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
 
 namespace KinopoiskTests.Pages
 {
-    public class FilmsPage
+    public class FilmsPage: BasePage
     {
-        public BaseElement linkFilm = new BaseElement(OpenQA.Selenium.By.LinkText("Унесённые призраками"));
+        private static readonly By uniqueElementFP = By.XPath("");
+
+        public FilmsPage() : base(uniqueElementFP, "Page of Films")
+        {
+            PageFactory.InitElements(Browser.Browser.GetDriver(), this);
+        }
+
+        [FindsBy(How = How.LinkText, Using = "Унесённые призраками")]
+        public IWebElement LinkFilm { get; set; }
     }
 }

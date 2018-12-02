@@ -11,6 +11,7 @@ namespace KinopoiskTests.ElementsWork
         private IWebDriver _driver;
         private IWebElement _element;
         By _locator;
+        protected string _name;
 
         SelectElement _select;
 
@@ -83,6 +84,12 @@ namespace KinopoiskTests.ElementsWork
             _element = _driver.FindElement(_locator);
 
             _waitStateElement = new WebDriverWait(_driver, TimeSpan.FromSeconds(15));
+        }
+
+        public BaseElement(By locator, string name)
+        {
+            this._locator = locator;
+            this._name = name == "" ? this.Text : name;
         }
 
         public void Clear()

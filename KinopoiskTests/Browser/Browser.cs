@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace KinopoiskTests.Browser
 {
@@ -9,6 +10,7 @@ namespace KinopoiskTests.Browser
     {
         private static IWebDriver _driver;
         private static Browser _instance;
+        private static readonly object locker = new object();
         public static BrowserFactory.BrowserType _currentBrowser;
 
         static Boolean _readyStateComplete = false;
@@ -22,11 +24,14 @@ namespace KinopoiskTests.Browser
 
         public static Browser GetInstance()
         {
-            if (_instance == null)
+            lock (locker)
             {
-                _instance = new Browser();
+                if (_instance == null)
+                {
+                    _instance = new Browser();
+                }
+                return _instance;
             }
-            return _instance;
         }
 
         public static IWebDriver GetDriver()
@@ -39,16 +44,16 @@ namespace KinopoiskTests.Browser
             _driver.Navigate().GoToUrl(url);
         }
 
-        public static bool CheckStateLoading()
-        {
-            while (!_readyStateComplete)
-            {
-                IJavaScriptExecutor executor = (IJavaScriptExecutor)_driver;
-                executor.ExecuteScript("window.scrollTo(0, document.body.offsetHeight)");
-                _readyStateComplete = ((String)executor.ExecuteScript("return document.readyState")).Equals("complete");
-            }
-            return _readyStateComplete = true;
-        }
+        //public static bool CheckStateLoading()
+        //{
+        //    while (!_readyStateComplete)
+        //    {
+        //        IJavaScriptExecutor executor = (IJavaScriptExecutor)_driver;
+        //        executor.ExecuteScript("window.scrollTo(0, document.body.offsetHeight)");
+        //        _readyStateComplete = ((String)executor.ExecuteScript("return document.readyState")).Equals("complete");
+        //    }
+        //    return _readyStateComplete = true;
+        //}
 
         public static void SwitchToWindow()
         {
@@ -62,12 +67,20 @@ namespace KinopoiskTests.Browser
                     break;
                 }
             }
-           _driver.SwitchTo().Window(windowHandle);
+            _driver.SwitchTo().Window(windowHandle);
         }
-         
+
         public static void Quit()
         {
             _driver.Quit();
+            if (_currentBrowser == BrowserFactory.BrowserType.Chrome)
+            {
+                var processes = Process.GetProcessesByName("chromedriver");
+                foreach (var process in processes)
+                {
+                    process.Kill();
+                }
+            }
             _instance = null;
             _driver = null;
         }

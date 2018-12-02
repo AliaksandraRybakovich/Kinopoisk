@@ -6,11 +6,11 @@ using System.Text;
 
 namespace KinopoiskTests.Entities
 {
-    public class GetDataFromCsv
+    public class CsvDataReader
     {        
         public static IEnumerable<ExtentedSearchInfo> ReadCsvForExtendedSearch()
         {
-            string path = $"{AppDomain.CurrentDomain.BaseDirectory}..\\..\\Resources\\TestDataForExtendedSearch.csv";
+            string path = ;
             using (CsvReader csv = new CsvReader(new StreamReader(path, Encoding.Default), true))
             {
                 while (csv.ReadNextRecord())

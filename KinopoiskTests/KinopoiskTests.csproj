@@ -91,22 +91,66 @@
     <Compile Include="Browser\BrowserFactory.cs" />
     <Compile Include="Browser\Configuration.cs" />
     <Compile Include="ElementsWork\BaseElement.cs" />
-    <Compile Include="Entities\FieldForDropDown.cs" />
-    <Compile Include="Entities\GetDataFromCsv.cs" />
+    <Compile Include="Entities\CsvDataReader.cs" />
     <Compile Include="Entities\ExtentedSearchInfo.cs" />
     <Compile Include="Entities\UserInfo.cs" />
     <Compile Include="Pages\AuthorizationPage.cs" />
+    <Compile Include="Pages\BasePage.cs" />
+    <Compile Include="Pages\ChoicePage.cs" />
     <Compile Include="Pages\ExtentedSearchPage.cs" />
     <Compile Include="Pages\FilmCurrentPage.cs" />
     <Compile Include="Pages\FilmsPage.cs" />
-    <Compile Include="Pages\GoogleLogInPage.cs" />
+    <Compile Include="Pages\YandexLogInPage.cs" />
     <Compile Include="Pages\HomePage.cs" />
     <Compile Include="Pages\LogPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Specflow\BaseTest.cs" />
+    <Compile Include="Specflow\CheckAuthorizationPage.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckAuthorizationPage.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specflow\CheckAuthorizationPageSteps.cs" />
+    <Compile Include="Specflow\CheckExtentedPage.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckExtentedPage.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specflow\CheckExtentedPageSteps.cs" />
+    <Compile Include="Specflow\CheckExtentedSearch.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckExtentedSearch.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specflow\CheckExtentedSearchSteps.cs" />
+    <Compile Include="Specflow\CheckExtenteSocialPanel.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckExtenteSocialPanel.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specflow\CheckExtenteSocialPanelSteps.cs" />
+    <Compile Include="Specflow\CheckGoToGoogleLogin.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckGoToGoogleLogin.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specflow\CheckGoToGoogleLoginSteps.cs" />
+    <Compile Include="Specflow\CheckLoginToKinopoisk.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckLoginToKinopoisk.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specflow\CheckLoginToKinopoiskSteps.cs" />
+    <Compile Include="Specflow\CheckLogOut.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheckLogOut.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specflow\CheckLogOutSteps.cs" />
     <Compile Include="Steps\AuthorizationSteps.cs" />
     <Compile Include="Steps\FilmCurrentSteps.cs" />
     <Compile Include="Steps\FilmsSteps.cs" />
-    <Compile Include="Steps\GoogleLogInSteps.cs" />
+    <Compile Include="Steps\YandexLogInSteps.cs" />
     <Compile Include="Steps\HomeSteps.cs" />
     <Compile Include="Steps\ExtentedSearchSteps.cs" />
     <Compile Include="Steps\LogSteps.cs" />
@@ -119,9 +163,36 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <None Include="Resources\TestDataForDropdown.csv" />
     <None Include="Resources\TestDataForExtendedSearch.csv" />
     <None Include="Resources\TestDataForUser.csv" />
+    <None Include="Specflow\CheckAuthorizationPage.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CheckAuthorizationPage.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specflow\CheckExtentedPage.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CheckExtentedPage.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specflow\CheckExtentedSearch.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CheckExtentedSearch.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specflow\CheckExtenteSocialPanel.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CheckExtenteSocialPanel.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specflow\CheckGoToGoogleLogin.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CheckGoToGoogleLogin.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specflow\CheckLoginToKinopoisk.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CheckLoginToKinopoisk.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specflow\CheckLogOut.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CheckLogOut.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\chromedriver.exe" />

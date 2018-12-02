@@ -21,7 +21,7 @@ namespace KinopoiskTests.Specflow
         [Then(@"I see a page with input field for google")]
         public void ThenISeeAPageWithInputFieldForGoogle()
         {
-            bool checkGoToGoogleLogIn = GoogleLogInSteps.CheckSocialLogInPage();
+            bool checkGoToGoogleLogIn = YandexLogInSteps.CheckSocialLogInPage();
 
             Assert.IsTrue(checkGoToGoogleLogIn, "You didn't go to page google Sing In");
         }

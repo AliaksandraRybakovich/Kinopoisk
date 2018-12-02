@@ -3,9 +3,11 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace KinopoiskTests.Pages
 {
-    public class AuthorizationPage
+    public class AuthorizationPage: BasePage
     {
-        public AuthorizationPage()
+        private static readonly By uniqueElementAP = By.XPath("//a[contains(@class,'help - link')]");
+
+        public AuthorizationPage():base(uniqueElementAP, "Authorization Page")
         {
             PageFactory.InitElements(Browser.Browser.GetDriver(), this);
         }
@@ -17,6 +19,6 @@ namespace KinopoiskTests.Pages
         public IWebElement extenteSocialPanel { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//div[contains(@class, 'code_gg')]")]
-        public IWebElement googleButton { get; set; }
+        public IWebElement yandexButton { get; set; }
     }
 }
