@@ -94,12 +94,12 @@
     <Compile Include="Entities\CsvDataReader.cs" />
     <Compile Include="Entities\ExtentedSearchInfo.cs" />
     <Compile Include="Entities\UserInfo.cs" />
-    <Compile Include="Pages\AuthorizationPage.cs" />
+    <Compile Include="Pages\UniversalAuthorizationPage.cs" />
     <Compile Include="Pages\BasePage.cs" />
-    <Compile Include="Pages\ChoicePage.cs" />
+    <Compile Include="Pages\AuthorizationSelectionPage.cs" />
     <Compile Include="Pages\ExtentedSearchPage.cs" />
-    <Compile Include="Pages\FilmCurrentPage.cs" />
-    <Compile Include="Pages\FilmsPage.cs" />
+    <Compile Include="Pages\FilmInfoPage.cs" />
+    <Compile Include="Pages\SearchResultsPage.cs" />
     <Compile Include="Pages\YandexLogInPage.cs" />
     <Compile Include="Pages\HomePage.cs" />
     <Compile Include="Pages\LogPage.cs" />
@@ -147,9 +147,10 @@
       <DependentUpon>CheckLogOut.feature</DependentUpon>
     </Compile>
     <Compile Include="Specflow\CheckLogOutSteps.cs" />
-    <Compile Include="Steps\AuthorizationSteps.cs" />
-    <Compile Include="Steps\FilmCurrentSteps.cs" />
-    <Compile Include="Steps\FilmsSteps.cs" />
+    <Compile Include="Steps\AuthorizationSelectionSteps.cs" />
+    <Compile Include="Steps\FilmInfoSteps.cs" />
+    <Compile Include="Steps\SearchResultsSteps.cs" />
+    <Compile Include="Steps\UniversalAuthorizationSteps.cs" />
     <Compile Include="Steps\YandexLogInSteps.cs" />
     <Compile Include="Steps\HomeSteps.cs" />
     <Compile Include="Steps\ExtentedSearchSteps.cs" />
@@ -164,7 +165,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Resources\TestDataForExtendedSearch.csv" />
-    <None Include="Resources\TestDataForUser.csv" />
+    <None Include="Resources\TestDataForLogin.csv" />
     <None Include="Specflow\CheckAuthorizationPage.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CheckAuthorizationPage.feature.cs</LastGenOutput>

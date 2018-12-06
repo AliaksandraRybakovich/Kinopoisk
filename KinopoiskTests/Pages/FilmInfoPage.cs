@@ -4,11 +4,11 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace KinopoiskTests.Pages
 {
-    public  class FilmCurrentPage: BasePage
+    public  class FilmInfoPage: BasePage
     {
-        private static readonly By uniqueElementFCP = By.XPath("");
+        private static readonly By uniqueElement = By.Id("headerFilm");
 
-        public FilmCurrentPage() : base(uniqueElementFCP, "Page of Current Films")
+        public FilmInfoPage() : base(uniqueElement, "Page of Current Films")
         {
             PageFactory.InitElements(Browser.Browser.GetDriver(), this);
         }
@@ -17,7 +17,7 @@ namespace KinopoiskTests.Pages
         public IWebElement NameOfFilms { get; set; }
 
         [FindsBy(How = How.LinkText, Using = "2001")]
-        public IWebElement Year { get; set; }       
+        public IWebElement FilmYear { get; set; }       
 
     }
 }

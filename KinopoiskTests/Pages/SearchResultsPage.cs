@@ -3,11 +3,11 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace KinopoiskTests.Pages
 {
-    public class FilmsPage: BasePage
+    public class SearchResultsPage: BasePage
     {
-        private static readonly By uniqueElementFP = By.XPath("");
+        private static readonly By uniqueElement = By.XPath("//*[@class = 'search_results']");
 
-        public FilmsPage() : base(uniqueElementFP, "Page of Films")
+        public SearchResultsPage() : base(uniqueElement, "Page of Films")
         {
             PageFactory.InitElements(Browser.Browser.GetDriver(), this);
         }

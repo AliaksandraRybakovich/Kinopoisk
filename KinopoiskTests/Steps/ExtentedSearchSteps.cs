@@ -9,24 +9,24 @@ namespace KinopoiskTests.Steps
         
         public static void EnterDataForExtSearch(ExtentedSearchInfo searchInfo)
         {
-            extentedSearchPage.TextboxName.Click();
-            extentedSearchPage.TextboxName.SendKeys(searchInfo.NameOfFilms);
+            extentedSearchPage.NameTextbox.Click();
+            extentedSearchPage.NameTextbox.SendKeys(searchInfo.NameOfFilms);
 
-            extentedSearchPage.TextboxYear.Click();
-            extentedSearchPage.TextboxYear.SendKeys(searchInfo.Year);
+            extentedSearchPage.YearTextbox.Click();
+            extentedSearchPage.YearTextbox.SendKeys(searchInfo.YearFilm);
 
-            extentedSearchPage.ButtonSearch.Click();
+            extentedSearchPage.SearchButton.Click();
         }
 
         public static void EnterDataForExtSearch(string nemaOfFilm, string year)
         {
-            extentedSearchPage.TextboxName.Click();
-            extentedSearchPage.TextboxName.SendKeys(nemaOfFilm);
+            extentedSearchPage.NameTextbox.Click();
+            extentedSearchPage.NameTextbox.SendKeys(nemaOfFilm);
+            
+            extentedSearchPage.YearTextbox.Click();
+            extentedSearchPage.YearTextbox.SendKeys(year);
 
-            extentedSearchPage.TextboxYear.Click();
-            extentedSearchPage.TextboxYear.SendKeys(year);
-
-            extentedSearchPage.ButtonSearch.Click();
+            extentedSearchPage.SearchButton.Click(); 
         }
     }
 }

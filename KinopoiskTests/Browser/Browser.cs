@@ -43,7 +43,7 @@ namespace KinopoiskTests.Browser
         {
             _driver.Navigate().GoToUrl(url);
         }
-
+        
         //public static bool CheckStateLoading()
         //{
         //    while (!_readyStateComplete)

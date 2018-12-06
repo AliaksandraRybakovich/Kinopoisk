@@ -15,13 +15,13 @@ namespace KinopoiskTests.Specflow
         [When(@"I click on button more")]
         public void WhenIClickOnButtonMore()
         {
-            AuthorizationSteps.ClickOnButtonExtenteSocialPanel();
+            AuthorizationSelectionSteps.ClickOnButtonExtenteSocialPanel();
         }
         
         [Then(@"I see the other social badges")]
         public void ThenISeeTheOtherSocialBadges()
         {
-            bool checkSocialLogin = AuthorizationSteps.CheckExtenteSocialPanel();
+            bool checkSocialLogin = AuthorizationSelectionSteps.CheckExtenteSocialPanel();
 
             Assert.IsTrue(checkSocialLogin, "You didn't open extente social panel");
         }

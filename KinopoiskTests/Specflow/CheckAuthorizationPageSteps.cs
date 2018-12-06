@@ -21,7 +21,7 @@ namespace KinopoiskTests.Specflow
         [Then(@"I see Authorization page")]
         public void ThenISeeAuthorizationPage()
         {
-            bool checkAuthPage = AuthorizationSteps.CheckAuthorizationPage();
+            bool checkAuthPage = AuthorizationSelectionSteps.CheckAuthorizationPage();
 
             Assert.IsTrue(checkAuthPage, "You didn't to the Authorization page");
         }

@@ -5,9 +5,9 @@ namespace KinopoiskTests.Pages
 {
     public class YandexLogInPage: BasePage
     {
-        private static readonly By uniqueElementGL = By.XPath("//*[contains(@class, 'logo_name')]");
+        private static readonly By uniqueElement = By.XPath("//*[contains(@class, 'logo_name')]");
 
-        public YandexLogInPage():base(uniqueElementGL, "Google Log Page")
+        public YandexLogInPage():base(uniqueElement, "Google Log Page")
         {
             PageFactory.InitElements(Browser.Browser.GetDriver(), this);
         }

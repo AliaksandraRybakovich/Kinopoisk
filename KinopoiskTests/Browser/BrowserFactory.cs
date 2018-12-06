@@ -23,6 +23,7 @@ namespace KinopoiskTests.Browser
                 case BrowserType.Chrome:
                     ChromeOptions options = new ChromeOptions();
                     options.AddArgument("--start-maximized");
+                    options.AddArgument
                     driver = new ChromeDriver(options);
                     break;
 

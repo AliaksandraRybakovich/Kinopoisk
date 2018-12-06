@@ -15,7 +15,7 @@ namespace KinopoiskTests.Specflow
         [When(@"I click on button google badges")]
         public void WhenIClickOnButtonGoogleBadges()
         {
-            AuthorizationSteps.ClickOnButtonGoogle();
+            AuthorizationSelectionSteps.ClickOnButtonGoogle();
         }
         
         [Then(@"I see a page with input field for google")]

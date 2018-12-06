@@ -17,15 +17,15 @@ namespace KinopoiskTests.Specflow
         public void WhenIAddParametersУнесённыеПризракамиAnd(string nameOfFilm, string year)
         {
             ExtentedSearchInfo searchData = new ExtentedSearchInfo(nameOfFilm, year);
-            ExtentedSearchSteps.EnterDataForExtSearch(searchData.NameOfFilms, searchData.Year);
-            FilmsSteps.GoTOLinkFilm();
+            ExtentedSearchSteps.EnterDataForExtSearch(searchData.NameOfFilms, searchData.YearFilm);
+            SearchResultsSteps.GoTOLinkFilm();
         }
         
         [Then(@"the result I found a current film with parameters (.*) and (.*)")]
         public void ThenTheResultIFoundACurrentFilm(string nameOfFilm, string year)
         {
             ExtentedSearchInfo searchData = new ExtentedSearchInfo(nameOfFilm, year);
-            bool checkSearchFilm = FilmCurrentSteps.CheckFilm(searchData.NameOfFilms, searchData.Year);
+            bool checkSearchFilm = FilmInfoSteps.CheckFilm(searchData.NameOfFilms, searchData.YearFilm);
 
             Assert.IsTrue(checkSearchFilm, "This film didn't coincide with given parameter");
         }

@@ -8,27 +8,42 @@ namespace KinopoiskTests.Tests
     public class Test : BaseTest
     {       
         [Test, TestCaseSource(typeof(CsvDataReader), "ReadCsvForLogInUser")]
-        public void CheckLogInToKinopoisk(UserInfo user)
+        public void TestLogin(UserInfo user)
         {
-            YandexLogInSteps.SingIn(user);
-
-           
+            LogSteps.LogIn();
+            AuthorizationSelectionSteps.CLickOnHaveAccountButton();
+            UniversalAuthorizationSteps.ClickOnYandexButton();
+            YandexLogInSteps.SingInYandexAccount(user);
+            
+            //assert check the user id
         }
 
         [Test]
-        public void CheckLogOut()
+        public void TestLogOut()
         {
-            HomeSteps.ClickOnLogOut();
+            //log in to kinopoisk throw id user
+
+            HomeSteps.ClickOnLogOutButton();
+
+            //assert log page
         }
     }
-
+    
     [TestFixture]
     public class Test2 : BaseTest
     {
         [Test, TestCaseSource(typeof(CsvDataReader), "ReadCsvForExtendedSearch")]
-        public void CheckExtentedSeach(ExtentedSearchInfo searchData)
+        public void TestExtentedSearch(ExtentedSearchInfo searchData)
         {
+            //log in to kinopoisk throw id user
+
+            HomeSteps.ClickOnExtentedSearchButton();
             ExtentedSearchSteps.EnterDataForExtSearch(searchData);
+            SearchResultsSteps.ClickOnMovieRerference();
+
+           bool isAssert = FilmInfoSteps.VerificationFilmInfo(searchData);
+
+            Assert.IsTrue(isAssert);
         }
     }
 }

@@ -1,7 +1,5 @@
 ﻿using KinopoiskTests.Entities;
 using KinopoiskTests.Pages;
-using OpenQA.Selenium.Support.UI;
-using System;
 
 namespace KinopoiskTests.Steps
 {
@@ -9,9 +7,9 @@ namespace KinopoiskTests.Steps
     {
         static YandexLogInPage yandexLogInPage = new YandexLogInPage();
       
-
-        public static void SingIn(UserInfo user)
+        public static void SingInYandexAccount(UserInfo user)
         {
+            Browser.Browser.SwitchToWindow();
             yandexLogInPage.loginInputFields.Click();
             yandexLogInPage.loginInputFields.SendKeys(user.Login);
             yandexLogInPage.buttonLogin.Click();

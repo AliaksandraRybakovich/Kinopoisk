@@ -6,9 +6,9 @@ namespace KinopoiskTests.Pages
 {
     public class LogPage: BasePage
     {
-        private static readonly By uniqueElementLP = By.XPath("//*[@class ='kp2 - authapi - overlay']");
+        private static readonly By uniqueElement = By.XPath("//*[@class ='kp2 - authapi - overlay']");
 
-        public LogPage() : base(uniqueElementLP, "Log Page")
+        public LogPage() : base(uniqueElement, "Log Page")
         {
             PageFactory.InitElements(Browser.Browser.GetDriver(), this);
         }

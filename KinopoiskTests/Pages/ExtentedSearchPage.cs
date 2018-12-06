@@ -6,23 +6,20 @@ namespace KinopoiskTests.Pages
 {
     public class ExtentedSearchPage: BasePage
     {
-        private static readonly By uniqueElementESP = By.XPath("");
+        private static readonly By uniqueElement = By.XPath("//*[@class = 'moviename-big']/span[1]");
 
-        public ExtentedSearchPage() : base(uniqueElementESP, "Page of Extented Search")
+        public ExtentedSearchPage() : base(uniqueElement, "Page of Extented Search")
         {
             PageFactory.InitElements(Browser.Browser.GetDriver(), this);
         }
 
-        [FindsBy(How = How.XPath, Using = "//*[@class = 'moviename-big']/span[1]")]
-        public IWebElement CheckSuccess { get; set; }
-
         [FindsBy(How = How.LinkText, Using = "//input[@class = 'text el_1']")]
-        public IWebElement TextboxName { get; set; }
+        public IWebElement NameTextbox { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id='year']")]
-        public IWebElement TextboxYear { get; set; }
+        public IWebElement YearTextbox { get; set; }
 
         [FindsBy(How = How.LinkText, Using = "//*[@id='formSearchMain']/input[11]")]
-        public IWebElement ButtonSearch { get; set; }
+        public IWebElement SearchButton { get; set; }
     }
 }
