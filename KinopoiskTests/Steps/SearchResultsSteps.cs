@@ -8,9 +8,10 @@ namespace KinopoiskTests.Steps
     {
         static SearchResultsPage searchResultsPage = new SearchResultsPage();
 
-        public static void ClickOnMovieRerference()
+        public static FilmInfoPage ClickOnMovieRerference()
         {
             searchResultsPage.LinkFilm.Click();
+            return new FilmInfoPage();
         }
       
     }

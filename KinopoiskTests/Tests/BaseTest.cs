@@ -14,6 +14,7 @@ namespace KinopoiskTests.Tests
         {
             browser = Browser.Browser.GetInstance();
             Browser.Browser.NavigateTo(Configuration.Url);
+            Browser.Browser.DeleteAllCookies();
         }
 
         [OneTimeTearDown]

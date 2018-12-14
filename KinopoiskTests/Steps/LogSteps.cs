@@ -6,9 +6,10 @@ namespace KinopoiskTests.Steps
     {
         static LogPage logPage = new LogPage();
 
-        public static void LogIn()
+        public static AuthorizationSelectionPage LogIn()
         {
             logPage.Login.Click();
+            return new AuthorizationSelectionPage();
         }
     }
 }

@@ -9,15 +9,17 @@ namespace KinopoiskTests.Steps
     {
         static HomePage homePage = new HomePage();
 
-        public static void ClickOnExtentedSearchButton()
+        public static ExtentedSearchPage ClickOnExtentedSearchButton()
         {
             homePage.ExtentedSearchButton.Click();
+            return new ExtentedSearchPage();
         }
 
-        public static void ClickOnLogOutButton()
+        public static LogPage ClickOnLogOutButton()
         {
             homePage.Logo.Click();
             homePage.LogOut.Click();
+            return new LogPage();
         }        
     }
 }

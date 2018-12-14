@@ -7,7 +7,7 @@ namespace KinopoiskTests.Steps
     {
         static YandexLogInPage yandexLogInPage = new YandexLogInPage();
       
-        public static void SingInYandexAccount(UserInfo user)
+        public static HomePage SingInYandexAccount(UserInfo user)
         {
             Browser.Browser.SwitchToWindow();
             yandexLogInPage.loginInputFields.Click();
@@ -17,6 +17,7 @@ namespace KinopoiskTests.Steps
             yandexLogInPage.passwordInputFields.Click();
             yandexLogInPage.passwordInputFields.SendKeys(user.Password);
             yandexLogInPage.buttonPassword.Click();
+            return new HomePage();            
         }
 
         public static void SingIn(string login, string password)

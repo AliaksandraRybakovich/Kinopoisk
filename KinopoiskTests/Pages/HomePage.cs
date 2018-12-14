@@ -6,7 +6,6 @@ namespace KinopoiskTests.Pages
 {
     public class HomePage: BasePage
     {
-        //change unique element
         private static readonly By uniqueElement = By.XPath("//*[@class='header']");
 
         public HomePage(): base(uniqueElement, "Home Page")

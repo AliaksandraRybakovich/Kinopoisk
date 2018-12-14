@@ -13,19 +13,16 @@ namespace KinopoiskTests.Tests
             LogSteps.LogIn();
             AuthorizationSelectionSteps.CLickOnHaveAccountButton();
             UniversalAuthorizationSteps.ClickOnYandexButton();
+
             YandexLogInSteps.SingInYandexAccount(user);
-            
-            //assert check the user id
         }
 
         [Test]
         public void TestLogOut()
         {
-            //log in to kinopoisk throw id user
+            Browser.Browser.CookieForAuthorization();
 
-            HomeSteps.ClickOnLogOutButton();
-
-            //assert log page
+            HomeSteps.ClickOnLogOutButton();            
         }
     }
     
@@ -35,13 +32,13 @@ namespace KinopoiskTests.Tests
         [Test, TestCaseSource(typeof(CsvDataReader), "ReadCsvForExtendedSearch")]
         public void TestExtentedSearch(ExtentedSearchInfo searchData)
         {
-            //log in to kinopoisk throw id user
+            Browser.Browser.CookieForAuthorization();
 
             HomeSteps.ClickOnExtentedSearchButton();
             ExtentedSearchSteps.EnterDataForExtSearch(searchData);
             SearchResultsSteps.ClickOnMovieRerference();
 
-           bool isAssert = FilmInfoSteps.VerificationFilmInfo(searchData);
+            bool isAssert = FilmInfoSteps.VerificationFilmInfo(searchData);
 
             Assert.IsTrue(isAssert);
         }

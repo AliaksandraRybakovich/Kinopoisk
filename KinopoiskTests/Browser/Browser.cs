@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using KinopoiskTests.Entities;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.ObjectModel;
@@ -39,22 +40,27 @@ namespace KinopoiskTests.Browser
             return _driver;
         }
 
+        public static void MaximizeBrowser()
+        {
+            _driver.Manage().Window.Maximize();
+        }
+
         public static void NavigateTo(string url)
         {
             _driver.Navigate().GoToUrl(url);
         }
-        
-        //public static bool CheckStateLoading()
-        //{
-        //    while (!_readyStateComplete)
-        //    {
-        //        IJavaScriptExecutor executor = (IJavaScriptExecutor)_driver;
-        //        executor.ExecuteScript("window.scrollTo(0, document.body.offsetHeight)");
-        //        _readyStateComplete = ((String)executor.ExecuteScript("return document.readyState")).Equals("complete");
-        //    }
-        //    return _readyStateComplete = true;
-        //}
 
+        public static void DeleteAllCookies()
+        {
+            _driver.Manage().Cookies.DeleteAllCookies();
+        }
+
+        public static void CookieForAuthorization()
+        {
+            UserInfo.SessionId = _driver.Manage().Cookies.GetCookieNamed("sessionid").Value;
+            _driver.Manage().Cookies.AddCookie(new Cookie("sessionId",UserInfo.SessionId));
+        }
+        
         public static void SwitchToWindow()
         {
             string windowHandle = string.Empty;

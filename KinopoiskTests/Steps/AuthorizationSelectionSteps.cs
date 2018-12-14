@@ -6,9 +6,10 @@ namespace KinopoiskTests.Steps
     {
         static AuthorizationSelectionPage authorizationSelectionPage = new AuthorizationSelectionPage();
 
-        public static void CLickOnHaveAccountButton()
+        public static UniversalAuthorizationPage CLickOnHaveAccountButton()
         {
             authorizationSelectionPage.HaveAccount.Click();
+            return new UniversalAuthorizationPage();
         }
     }
 }

@@ -6,9 +6,10 @@ namespace KinopoiskTests.Steps
     {
         static UniversalAuthorizationPage universalAuthorizationPage = new UniversalAuthorizationPage();
 
-        public static void ClickOnYandexButton()
+        public static YandexLogInPage ClickOnYandexButton()
         {
             universalAuthorizationPage.yandexButton.Click();
+            return new YandexLogInPage();
         }
     }
 }
