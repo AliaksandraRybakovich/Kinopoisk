@@ -19,7 +19,7 @@ namespace KinopoiskTests.Entities
                 {
                     yield return new ExtentedSearchInfo
                     {
-                        NameOfFilms = csv[0],
+                        NameOfFilm = csv[0],
                         YearFilm = csv[1]
                     };
                 }

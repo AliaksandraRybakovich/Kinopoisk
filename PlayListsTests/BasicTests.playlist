@@ -1,1 +1,1 @@
-<Playlist Version="1.0"><Add Test="KinopoiskTests.Tests.Test.TestLogOut" /><Add Test="KinopoiskTests.Tests.Test2.TestExtentedSearch" /><Add Test="KinopoiskTests.Tests.Test.TestLogin" /></Playlist>
+<Playlist Version="1.0"><Add Test="KinopoiskTests.Tests.Test.TestLogOut" /><Add Test="KinopoiskTests.Tests.Test2.TestExtentedSearch" /><Add Test="KinopoiskTests.Tests.Test.TestLogin" /><Add Test="KinopoiskTests.Tests.Test2.TestExtentedSearch(KinopoiskTests.Entities.ExtentedSearchInfo)" /></Playlist>

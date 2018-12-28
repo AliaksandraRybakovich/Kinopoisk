@@ -10,6 +10,7 @@ namespace KinopoiskTests.Tests
         [Test, TestCaseSource(typeof(CsvDataReader), "ReadCsvForLogInUser")]
         public void TestLogin(UserInfo user)
         {
+            new LogSteps();
             LogSteps.LogIn();
             AuthorizationSelectionSteps.CLickOnHaveAccountButton();
             UniversalAuthorizationSteps.ClickOnYandexButton();
@@ -32,7 +33,7 @@ namespace KinopoiskTests.Tests
         [Test, TestCaseSource(typeof(CsvDataReader), "ReadCsvForExtendedSearch")]
         public void TestExtentedSearch(ExtentedSearchInfo searchData)
         {
-            Browser.Browser.CookieForAuthorization();
+            new HomeSteps();
 
             HomeSteps.ClickOnExtentedSearchButton();
             ExtentedSearchSteps.EnterDataForExtSearch(searchData);

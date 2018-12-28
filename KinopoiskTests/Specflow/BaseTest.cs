@@ -1,6 +1,5 @@
 ﻿using KinopoiskTests.Browser;
 using TechTalk.SpecFlow;
-using System.Diagnostics;
 
 namespace KinopoiskTests.Specflow
 {
@@ -19,12 +18,7 @@ namespace KinopoiskTests.Specflow
         [AfterScenario]
         public static void AfterScenarioBrowser()
         {
-            Browser.Browser.Quit();
-            var processes = Process.GetProcessesByName("chromedriver");
-            foreach (var process in processes)
-            {
-                process.Kill();
-            }
+            Browser.Browser.Quit();            
         }        
     }
 }

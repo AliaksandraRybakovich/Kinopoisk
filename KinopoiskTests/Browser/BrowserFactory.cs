@@ -22,11 +22,7 @@ namespace KinopoiskTests.Browser
             {
                 case BrowserType.Chrome:
                     ChromeOptions options = new ChromeOptions();
-                    options.AddArguments("--start-maximized", "--disable-popup-blocking", "--allow-cross-origin-auth-prompt");
-                    //options.AddArgument("--start-maximized");
-                    //options.AddArgument("--disable-popup-blocking");
-                    ////what this?
-                    //options.AddArgument("--allow-cross-origin-auth-prompt");
+                    options.AddArguments("--start-maximized", "--disable-popup-blocking", "--allow-cross-origin-auth-prompt");                    
                     driver = new ChromeDriver(options);
                     break;
 

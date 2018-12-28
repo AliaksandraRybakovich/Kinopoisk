@@ -20,7 +20,7 @@ namespace KinopoiskTests.Steps
             return new HomePage();            
         }
 
-        public static void SingIn(string login, string password)
+        public static void SingInYandexAccount(string login, string password)
         {
             Browser.Browser.SwitchToWindow();
             yandexLogInPage.loginInputFields.Click();

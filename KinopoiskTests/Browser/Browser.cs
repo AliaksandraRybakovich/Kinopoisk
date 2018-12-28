@@ -1,7 +1,5 @@
 ﻿using KinopoiskTests.Entities;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 
@@ -13,11 +11,7 @@ namespace KinopoiskTests.Browser
         private static Browser _instance;
         private static readonly object locker = new object();
         public static BrowserFactory.BrowserType _currentBrowser;
-
-        static Boolean _readyStateComplete = false;
-
-        static WebDriverWait _wait;
-
+        
         private Browser()
         {
             _driver = BrowserFactory.GetDriver(_currentBrowser);

@@ -10,7 +10,7 @@ namespace KinopoiskTests.Steps
         public static SearchResultsPage EnterDataForExtSearch(ExtentedSearchInfo searchInfo)
         {
             extentedSearchPage.NameTextbox.Click();
-            extentedSearchPage.NameTextbox.SendKeys(searchInfo.NameOfFilms);
+            extentedSearchPage.NameTextbox.SendKeys(searchInfo.NameOfFilm);
 
             extentedSearchPage.YearTextbox.Click();
             extentedSearchPage.YearTextbox.SendKeys(searchInfo.YearFilm);
