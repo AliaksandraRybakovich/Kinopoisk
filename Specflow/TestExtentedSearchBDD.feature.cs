@@ -87,7 +87,7 @@ namespace KinopoiskTests.Specflow
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 8
- testRunner.Given("I follow to Home Page as a unregistered user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I follow to Log Page as a unregistered user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
  testRunner.And("I click on button *Extented Search*", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10

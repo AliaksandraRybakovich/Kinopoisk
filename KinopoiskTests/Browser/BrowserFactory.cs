@@ -2,6 +2,8 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using System;
+using System.Collections.Generic;
 
 namespace KinopoiskTests.Browser
 {
@@ -20,10 +22,11 @@ namespace KinopoiskTests.Browser
 
             switch (type)
             {
-                case BrowserType.Chrome:
+                case BrowserType.Chrome:               
                     ChromeOptions options = new ChromeOptions();
-                    options.AddArguments("--start-maximized", "--disable-popup-blocking", "--allow-cross-origin-auth-prompt");                    
-                    driver = new ChromeDriver(options);
+                    var service = ChromeDriverService.CreateDefaultService();
+                    options.AddArguments("--start-maximized", "--disable-infobars");
+                    driver = new ChromeDriver(service, options,TimeSpan.FromSeconds(15));
                     break;
 
                 case BrowserType.FireFox:

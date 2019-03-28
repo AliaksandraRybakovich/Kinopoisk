@@ -1,6 +1,4 @@
-﻿using KinopoiskTests.Browser;
-using NUnit.Framework;
-using System.Diagnostics;
+﻿using NUnit.Framework;
 
 namespace KinopoiskTests.Tests
 {
@@ -8,18 +6,23 @@ namespace KinopoiskTests.Tests
     public class BaseTest
     {
         protected static Browser.Browser browser;
+        protected string _url;
+
+        public BaseTest (string url)
+        {
+            _url = url;
+        }
 
         [OneTimeSetUp]
         public void SetUpBrowser()
         {
             browser = Browser.Browser.GetInstance();
-            Browser.Browser.NavigateTo(Configuration.Url);
-            Browser.Browser.DeleteAllCookies();
         }
 
         [OneTimeTearDown]
         public void TearDownBrowser()
         {
+            Browser.Browser.DeleteAllCookies();
             Browser.Browser.Quit();
         }
     }

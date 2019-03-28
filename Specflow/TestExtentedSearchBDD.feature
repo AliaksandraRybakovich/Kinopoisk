@@ -5,7 +5,7 @@
 
 @mytag
 Scenario Outline: Successfully Extented Search
-	Given I follow to Home Page as a unregistered user
+	Given I follow to Log Page as a unregistered user
 	And I click on button *Extented Search*
 	And I enter <nameOfFilm> and <yearFilm>
 	And I click on button *Search*

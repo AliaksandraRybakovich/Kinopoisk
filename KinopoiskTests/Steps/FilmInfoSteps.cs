@@ -18,15 +18,15 @@ namespace KinopoiskTests.Steps
             return isAssert;
         }
 
-        public static bool VerificationFilmInfo(string nameOfFilm, string yearFilm)
-        {
-            bool isAssert = false;
-            if ((filmInfoPage.NameOfFilms.Text == nameOfFilm) &&
-                (filmInfoPage.FilmYear.Text == yearFilm))
-            {
-                isAssert = true;
-            }
-            return isAssert;
-        }
+        //public static bool VerificationFilmInfo(string nameOfFilm, string yearFilm)
+        //{
+        //    bool isAssert = false;
+        //    if ((filmInfoPage.NameOfFilms.Text == nameOfFilm) &&
+        //        (filmInfoPage.FilmYear.Text == yearFilm))
+        //    {
+        //        isAssert = true;
+        //    }
+        //    return isAssert;
+        //}
     }
 }

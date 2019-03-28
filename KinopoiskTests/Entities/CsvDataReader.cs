@@ -1,6 +1,5 @@
 ﻿using KinopoiskTests.Browser;
 using LumenWorks.Framework.IO.Csv;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -9,7 +8,6 @@ namespace KinopoiskTests.Entities
 {
     public class CsvDataReader
     {
-        //universal method for read csv(?use patterns)
         public static IEnumerable<ExtentedSearchInfo> ReadCsvForExtendedSearch()
         {
             string path = Configuration.ExtentedSearchInfoCsvPath;
@@ -42,5 +40,23 @@ namespace KinopoiskTests.Entities
             }
         }
 
+        public static IEnumerable<DataNewsInfo> ReadCsvForDataNews()
+        {
+            string path = Configuration.DataNewsCsvPath;
+            
+            using (CsvReader csv = new CsvReader(new StreamReader(path, Encoding.Default), true))
+            {
+                while (csv.ReadNextRecord())
+                {
+                    
+                    yield return new DataNewsInfo
+                    {
+                        Day = csv[0],
+                        Month = csv[1],
+                        Year = csv[2]
+                    };
+                }
+            }
+        }
     }
 }

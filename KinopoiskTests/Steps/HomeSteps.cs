@@ -9,17 +9,25 @@ namespace KinopoiskTests.Steps
     {
         static HomePage homePage = new HomePage();
 
+        public static YandexLogInPage ChooseLogIn()
+        {
+            homePage.Login.Click();
+            Browser.Browser.SwitchToFrame(homePage.IFrame);
+            homePage.HaveAccount.Click();
+            homePage.YandexButton.Click();
+            return new YandexLogInPage();
+        }
+
+        public static void ClickOnLogOutButton()
+        {
+            homePage.Logo.Click();
+            homePage.LogOut.Click();
+        }
+
         public static ExtentedSearchPage ClickOnExtentedSearchButton()
         {
             homePage.ExtentedSearchButton.Click();
             return new ExtentedSearchPage();
-        }
-
-        public static LogPage ClickOnLogOutButton()
-        {
-            homePage.Logo.Click();
-            homePage.LogOut.Click();
-            return new LogPage();
         }        
     }
 }

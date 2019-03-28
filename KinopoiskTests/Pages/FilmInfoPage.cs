@@ -1,5 +1,4 @@
-﻿using KinopoiskTests.ElementsWork;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace KinopoiskTests.Pages

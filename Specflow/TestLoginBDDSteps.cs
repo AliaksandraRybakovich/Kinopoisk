@@ -10,26 +10,26 @@ namespace KinopoiskTests.Specflow
         [Given(@"I follow to the log in form")]
         public void GivenIFollowToTheLogInForm()
         {
-            new LogSteps();
-            LogSteps.LogIn();
+           // new LogSteps();
+            //LogSteps.LogIn();
         }
         
         [Given(@"I click on button \*Have Account\*")]
         public void GivenIClickOnButtonHaveAccount()
         {
-            AuthorizationSelectionSteps.CLickOnHaveAccountButton();
+            //AuthorizationSelectionSteps.CLickOnHaveAccountButton();
         }
         
         [Given(@"I click on button \*Yandex social network\*")]
         public void GivenIClickOnButtonYandexSocialNetwork()
         {
-            UniversalAuthorizationSteps.ClickOnYandexButton();
+            //UniversalAuthorizationSteps.ClickOnYandexButton();
         }
         
         [When(@"I have entered (.*) and (.*) on Yandex form")]
         public void WhenIHaveEnteredAlexandra_TestatestAndAlexRybka_TestOnYandexForm(string login, string password)
         {
-            YandexLogInSteps.SingInYandexAccount(login, password);
+           // YandexLogInSteps.SingInYandexAccount(login, password);
         }        
     }
 }

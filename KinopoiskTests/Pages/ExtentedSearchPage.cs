@@ -1,5 +1,4 @@
-﻿using KinopoiskTests.ElementsWork;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace KinopoiskTests.Pages
@@ -13,13 +12,13 @@ namespace KinopoiskTests.Pages
             PageFactory.InitElements(Browser.Browser.GetDriver(), this);
         }
 
-        [FindsBy(How = How.LinkText, Using = "//input[@class = 'text el_1']")]
+        [FindsBy(How = How.XPath, Using = "//input[@id = 'find_film']")]
         public IWebElement NameTextbox { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='year']")]
+        [FindsBy(How = How.XPath, Using = "//input[@id = 'year']")]
         public IWebElement YearTextbox { get; set; }
 
-        [FindsBy(How = How.LinkText, Using = "//*[@id='formSearchMain']/input[11]")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='formSearchMain']/input[11]")]
         public IWebElement SearchButton { get; set; }
     }
 }

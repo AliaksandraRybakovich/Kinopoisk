@@ -1,5 +1,6 @@
-﻿using KinopoiskTests.ElementsWork;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace KinopoiskTests.Pages
 {
@@ -7,19 +8,32 @@ namespace KinopoiskTests.Pages
     {
         protected By _titleLocator;
         protected string _title;
-        public static string _titleForm;
-
+        
         protected BasePage(By titleLocator, string title)
         {
             _titleLocator = titleLocator;
-            _title = _titleForm = title;
+            _title = title;
             AssertIsOpen();
         }
 
         public void AssertIsOpen()
         {
-            var label = new BaseElement(_titleLocator, _title);
-            label.WaitElementIsVisible();
+            //string id = String.Empty;
+            //string yandexId = String.Empty;
+            //try
+            //{
+            //    WebDriverWait wait = new WebDriverWait(Browser.Browser.GetDriver(), TimeSpan.FromSeconds(10));
+            //    Browser.Browser.SwitchToWindow(_title, out id, out yandexId);
+            //    wait.Until(ExpectedConditions.ElementIsVisible(_titleLocator));
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new Exception($"Message: {ex.Message} \nStackTrace: {ex.StackTrace} \nLocator {_titleLocator} \nTitle: {_title}\nId {id}\nYandexId{yandexId}");
+            //}
+
+            WebDriverWait wait = new WebDriverWait(Browser.Browser.GetDriver(), TimeSpan.FromSeconds(10));
+            Browser.Browser.SwitchToWindow(_title);
+            wait.Until(ExpectedConditions.ElementIsVisible(_titleLocator));
         }
     }
 }

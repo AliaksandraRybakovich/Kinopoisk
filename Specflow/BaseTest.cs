@@ -18,7 +18,7 @@ namespace KinopoiskTests.Specflow
         [AfterScenario]
         public static void AfterScenarioBrowser()
         {
-            Browser.Browser.Quit();            
-        }        
+            Browser.Browser.Quit();
+        }
     }
 }

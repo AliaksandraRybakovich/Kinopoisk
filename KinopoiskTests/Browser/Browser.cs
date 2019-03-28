@@ -1,7 +1,10 @@
-﻿using KinopoiskTests.Entities;
-using OpenQA.Selenium;
-using System.Collections.ObjectModel;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace KinopoiskTests.Browser
 {
@@ -11,10 +14,15 @@ namespace KinopoiskTests.Browser
         private static Browser _instance;
         private static readonly object locker = new object();
         public static BrowserFactory.BrowserType _currentBrowser;
-        
+        private static Actions action;
+        private static Dictionary<string, string> windows;
+        private static Cookie cookie;
+
         private Browser()
         {
             _driver = BrowserFactory.GetDriver(_currentBrowser);
+            action = new Actions(_driver);
+            windows = new Dictionary<string, string>();
         }
 
         public static Browser GetInstance()
@@ -39,35 +47,50 @@ namespace KinopoiskTests.Browser
             _driver.Manage().Window.Maximize();
         }
 
-        public static void NavigateTo(string url)
+        public static void NavigateTo(string Url)
         {
-            _driver.Navigate().GoToUrl(url);
+            _driver.Navigate().GoToUrl(Url);
         }
 
         public static void DeleteAllCookies()
         {
             _driver.Manage().Cookies.DeleteAllCookies();
         }
+                
+        public static void CookieForAuthorization(/*string SessionId*/)
+        {
+            //if (_driver.Manage().Cookies.GetCookieNamed("Session_id")?.Expiry < DateTime.Now)
 
-        public static void CookieForAuthorization()
-        {
-            UserInfo.SessionId = _driver.Manage().Cookies.GetCookieNamed("sessionid").Value;
-            _driver.Manage().Cookies.AddCookie(new Cookie("sessionId",UserInfo.SessionId));
+            ////var cookie = new Cookie("Session_id", _driver.Manage().Cookies.GetCookieNamed("Session_id")?.Value);
+            //// UserInfo.SessionId = _driver.Manage().Cookies.GetCookieNamed("Session_id")?.Value;
+            //_driver.Manage().Cookies.AddCookie(new Cookie("Session_id", SessionId));
+            action.SendKeys(Keys.F5);
         }
-        
-        public static void SwitchToWindow()
+               
+        public static void SwitchToWindow(string title)
         {
-            string windowHandle = string.Empty;
-            ReadOnlyCollection<string> windowHandles = _driver.WindowHandles;
-            foreach (string handle in windowHandles)
+            if (_driver.WindowHandles != null)
             {
-                if (handle != _driver.CurrentWindowHandle)
+                if (!windows.ContainsKey(title))
                 {
-                    windowHandle = handle;
-                    break;
+                    windows.Add(title, _driver.WindowHandles.LastOrDefault());
                 }
             }
-            _driver.SwitchTo().Window(windowHandle);
+            _driver.SwitchTo().Window(windows[title]);
+        }
+
+        public static void SwitchToFrame(IWebElement nameFrame)
+        {
+            _driver.SwitchTo().Frame(nameFrame);
+        }
+
+        public static void MoveMouseAndClick(IWebElement nameElement)
+        {
+            //везде заменить TimeSpan.FromSeconds(10) на одну переменую откуда-нибудь
+
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            wait.Until(ExpectedConditions.ElementToBeClickable(nameElement));
+            action.MoveToElement(nameElement).Click();
         }
 
         public static void Quit()
