@@ -14,9 +14,9 @@ namespace KinopoiskTests.Tests
         public void TestLogin(UserInfo user)
         {
             Browser.Browser.NavigateTo(_url);
-            new HomeSteps();
+            new HomeSteps();  
 
-            HomeSteps.ChooseLogIn();
+            HomeSteps.LogIn();
 
             YandexLogInSteps.SingInYandexAccount(user);
         }
@@ -24,11 +24,8 @@ namespace KinopoiskTests.Tests
         [Test]
         public void TestLogOut()
         {
-           
             Browser.Browser.NavigateTo(_url);
-            var cookie = new Cookie("Session_id", "3%3A1552844385.5.0.1552844385564%3AAQAAfw%3AE5.1%7C1110000015690266.-1.0%7C30%3A179248.996803.v5ZYiWYOwLVpzVCmym4KgjFpvUg");
-            Browser.Browser.GetDriver().Manage().Cookies.AddCookie(cookie);
-            Browser.Browser.GetDriver().Navigate().Refresh();
+            Browser.Browser.CookieForAuthorization();
 
             new HomeSteps();
 

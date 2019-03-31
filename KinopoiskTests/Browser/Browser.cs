@@ -57,14 +57,10 @@ namespace KinopoiskTests.Browser
             _driver.Manage().Cookies.DeleteAllCookies();
         }
                 
-        public static void CookieForAuthorization(/*string SessionId*/)
+        public static void CookieForAuthorization()
         {
-            //if (_driver.Manage().Cookies.GetCookieNamed("Session_id")?.Expiry < DateTime.Now)
-
-            ////var cookie = new Cookie("Session_id", _driver.Manage().Cookies.GetCookieNamed("Session_id")?.Value);
-            //// UserInfo.SessionId = _driver.Manage().Cookies.GetCookieNamed("Session_id")?.Value;
-            //_driver.Manage().Cookies.AddCookie(new Cookie("Session_id", SessionId));
-            action.SendKeys(Keys.F5);
+            _driver.Manage().Cookies.AddCookie(new Cookie("Session_id", Configuration.SessionID));
+            _driver.Navigate().Refresh();
         }
                
         public static void SwitchToWindow(string title)

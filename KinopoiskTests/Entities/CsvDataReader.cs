@@ -47,8 +47,7 @@ namespace KinopoiskTests.Entities
             using (CsvReader csv = new CsvReader(new StreamReader(path, Encoding.Default), true))
             {
                 while (csv.ReadNextRecord())
-                {
-                    
+                {                    
                     yield return new DataNewsInfo
                     {
                         Day = csv[0],

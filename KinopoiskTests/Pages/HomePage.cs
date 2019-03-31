@@ -24,10 +24,10 @@ namespace KinopoiskTests.Pages
         [FindsBy(How = How.XPath, Using = "//div[contains(@class, 'code_ya')]")]
         public IWebElement YandexButton { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//span[contains(@class, 'avatar-hover')]")]
+        [FindsBy(How = How.XPath, Using = "//div[contains(@class, 'component__avatar')]")]
         public IWebElement Logo { get; set; }               
 
-        [FindsBy(How = How.XPath, Using = "//*[@href= '/logout/']")]
+        [FindsBy(How = How.XPath, Using = "//ul/div[3]/li[4]/a/div")]
         public IWebElement LogOut { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//a[contains(@class,'advanced-search-button')]")]

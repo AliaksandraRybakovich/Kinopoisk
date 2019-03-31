@@ -16,6 +16,7 @@ namespace KinopoiskTests.Browser
 
         private static string _session_id = "3%3A1552844385.5.0.1552844385564%3AAQAAfw%3AE5.1%7C1110000015690266.-1.0%7C30%3A179248.996803.v5ZYiWYOwLVpzVCmym4KgjFpvUg";
 
+
         public static string Browser => GetEnviromentKey("Browser", "Chrome");
 
         public static string Url => GetEnviromentKey("Url", _defaultUrlsPath);

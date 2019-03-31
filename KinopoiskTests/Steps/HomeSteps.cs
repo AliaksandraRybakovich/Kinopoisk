@@ -1,7 +1,4 @@
-﻿using KinopoiskTests.Entities;
-using KinopoiskTests.Pages;
-using OpenQA.Selenium.Support.UI;
-using System;
+﻿using KinopoiskTests.Pages;
 
 namespace KinopoiskTests.Steps
 {
@@ -9,17 +6,15 @@ namespace KinopoiskTests.Steps
     {
         static HomePage homePage = new HomePage();
 
-        public static YandexLogInPage ChooseLogIn()
+        public static YandexLogInPage LogIn()
         {
             homePage.Login.Click();
-            Browser.Browser.SwitchToFrame(homePage.IFrame);
-            homePage.HaveAccount.Click();
-            homePage.YandexButton.Click();
+
             return new YandexLogInPage();
         }
 
         public static void ClickOnLogOutButton()
-        {
+        {            
             homePage.Logo.Click();
             homePage.LogOut.Click();
         }
@@ -27,6 +22,7 @@ namespace KinopoiskTests.Steps
         public static ExtentedSearchPage ClickOnExtentedSearchButton()
         {
             homePage.ExtentedSearchButton.Click();
+
             return new ExtentedSearchPage();
         }        
     }

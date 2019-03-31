@@ -6,7 +6,7 @@ namespace KinopoiskTests.Pages
 {
     public class NewsPage:BasePage
     {
-        private static readonly By uniqueElement = By.XPath("");
+        private static readonly By uniqueElement = By.XPath("//div[@id = 'datepicker']");
 
         public NewsPage() : base(uniqueElement, "News Page")
         {
@@ -14,9 +14,9 @@ namespace KinopoiskTests.Pages
         }
 
         [FindsBy(How =How.XPath, Using = "//tr/td/a[@class = 'ui-state-default']")]
-        public List<IWebElement> Day { get; set; }
+        public IList<IWebElement> Day { get; set; }
         
         [FindsBy(How = How.XPath, Using = "//div/span[@class = 'article__more_text'][1]")]
-        public List<IWebElement> NewsData { get; set; }
+        public IList<IWebElement> NewsData { get; set; }
     }
 }

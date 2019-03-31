@@ -14,6 +14,7 @@ namespace KinopoiskTests.Steps
                 if (day.Text == dataNews.Day)
                 {
                     day.Click();
+                    break;
                 }
             }
         }
