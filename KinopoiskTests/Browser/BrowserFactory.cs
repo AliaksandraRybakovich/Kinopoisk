@@ -3,38 +3,34 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using System;
-using System.Collections.Generic;
 
 namespace KinopoiskTests.Browser
 {
     public class BrowserFactory
-    {
-        public enum BrowserType
-        {
-            Chrome,
-            FireFox,
-            IE
-        }
-
-        public static IWebDriver GetDriver(BrowserType type)
+    {       
+        public static IWebDriver GetDriver(string browser)
         {
             IWebDriver driver = null;
 
-            switch (type)
+            switch (browser)
             {
-                case BrowserType.Chrome:               
+                case "Chrome":               
                     ChromeOptions options = new ChromeOptions();
                     var service = ChromeDriverService.CreateDefaultService();
                     options.AddArguments("--start-maximized", "--disable-infobars");
                     driver = new ChromeDriver(service, options,TimeSpan.FromSeconds(15));
                     break;
 
-                case BrowserType.FireFox:
-                    driver = new FirefoxDriver();
+                case "FireFox":
+                    FirefoxOptions optionsF = new FirefoxOptions();
+                    optionsF.AddArguments("--start-maximized", "--disable-infobars");
+                    driver = new FirefoxDriver(optionsF);
+                    driver.Manage().Window.Maximize();
                     break;
 
-                case BrowserType.IE:
-                    driver = new InternetExplorerDriver();
+                case "IE":
+                    driver = new InternetExplorerDriver();                   
+                    driver.Manage().Window.Maximize();
                     break;
 
             }

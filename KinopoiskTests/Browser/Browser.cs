@@ -1,9 +1,12 @@
-﻿using OpenQA.Selenium;
+﻿using Newtonsoft.Json;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 
 namespace KinopoiskTests.Browser
@@ -13,14 +16,13 @@ namespace KinopoiskTests.Browser
         private static IWebDriver _driver;
         private static Browser _instance;
         private static readonly object locker = new object();
-        public static BrowserFactory.BrowserType _currentBrowser;
         private static Actions action;
         private static Dictionary<string, string> windows;
-        private static Cookie cookie;
+        static ReadOnlyCollection<Cookie> cookie;
 
         private Browser()
         {
-            _driver = BrowserFactory.GetDriver(_currentBrowser);
+            _driver = BrowserFactory.GetDriver(Configuration.Browser);
             action = new Actions(_driver);
             windows = new Dictionary<string, string>();
         }
@@ -56,13 +58,39 @@ namespace KinopoiskTests.Browser
         {
             _driver.Manage().Cookies.DeleteAllCookies();
         }
-                
+
         public static void CookieForAuthorization()
         {
-            _driver.Manage().Cookies.AddCookie(new Cookie("Session_id", Configuration.SessionID));
-            _driver.Navigate().Refresh();
+            //write else
+            var cookieID = ReadCookiesFromJSONFile().Where(p => p.Name == "Session_Id").FirstOrDefault();
+            if (cookieID.Expiry < DateTime.Now)
+            {
+                _driver.Manage().Cookies.AddCookie(cookieID);
+                _driver.Navigate().Refresh();
+            }
         }
-               
+
+        public static void WriteCookiesToJSONFile()
+        {
+            cookie = _driver.Manage().Cookies.AllCookies;
+            string json = JsonConvert.SerializeObject(cookie);
+
+            using (StreamWriter file = File.CreateText(Configuration.CookiesPath))
+            {
+                file.Write(json);
+            }
+        }
+
+        public static ReadOnlyCollection<Cookie> ReadCookiesFromJSONFile()
+        {
+            using (StreamReader file = File.OpenText(Configuration.CookiesPath))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                cookie = (ReadOnlyCollection<Cookie>)serializer.Deserialize(file, typeof(ReadOnlyCollection<Cookie>));
+            }
+            return cookie;
+        }
+
         public static void SwitchToWindow(string title)
         {
             if (_driver.WindowHandles != null)
@@ -82,8 +110,6 @@ namespace KinopoiskTests.Browser
 
         public static void MoveMouseAndClick(IWebElement nameElement)
         {
-            //везде заменить TimeSpan.FromSeconds(10) на одну переменую откуда-нибудь
-
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.ElementToBeClickable(nameElement));
             action.MoveToElement(nameElement).Click();
@@ -92,7 +118,7 @@ namespace KinopoiskTests.Browser
         public static void Quit()
         {
             _driver.Quit();
-            if (_currentBrowser == BrowserFactory.BrowserType.Chrome)
+            if (Configuration.Browser == "Chrome")
             {
                 var processes = Process.GetProcessesByName("chromedriver");
                 foreach (var process in processes)

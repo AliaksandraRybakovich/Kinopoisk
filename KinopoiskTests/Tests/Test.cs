@@ -1,7 +1,6 @@
 ﻿using KinopoiskTests.Entities;
 using KinopoiskTests.Steps;
 using NUnit.Framework;
-using OpenQA.Selenium;
 
 namespace KinopoiskTests.Tests
 {
@@ -19,6 +18,7 @@ namespace KinopoiskTests.Tests
             HomeSteps.LogIn();
 
             YandexLogInSteps.SingInYandexAccount(user);
+            Browser.Browser.WriteCookiesToJSONFile();
         }
 
         [Test]
@@ -57,7 +57,7 @@ namespace KinopoiskTests.Tests
         public void TestDataNews(DataNewsInfo dataNews)
         {
             Browser.Browser.NavigateTo(_url);
-            new NewsSteps();
+            new NewsSteps(); 
             NewsSteps.ClickOnData(dataNews);
 
             bool isAssert = NewsSteps.AssertCollectionNews(dataNews);

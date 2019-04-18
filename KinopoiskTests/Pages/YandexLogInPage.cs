@@ -23,5 +23,8 @@ namespace KinopoiskTests.Pages
 
         [FindsBy(How = How.XPath, Using = "//button[@type= 'submit']")]
         public IWebElement buttonPassword { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//button[@type = 'button']")]
+        public IWebElement buttonNotNow { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace KinopoiskTests.Steps
         static HomePage homePage = new HomePage();
 
         public static YandexLogInPage LogIn()
-        {
+        { 
             homePage.Login.Click();
 
             return new YandexLogInPage();

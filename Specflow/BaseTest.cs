@@ -12,7 +12,6 @@ namespace KinopoiskTests.Specflow
         public static void BeforeScenarioBrowser()
         {
             browser = Browser.Browser.GetInstance();
-            Browser.Browser.NavigateTo(Configuration.Url);
         }
 
         [AfterScenario]
